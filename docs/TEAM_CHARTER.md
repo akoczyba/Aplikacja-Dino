@@ -12,14 +12,14 @@
 - **Repozytorium i zadania:** GitHub (Issues, Projects, Pull Requests).
 
 ## 3. Asynchroniczne Daily
-- Odbywa się w dni robocze na dedykowanym kanale do godziny **10:00**.
-- Każdy członek zespołu wpisuje 3 punkty:
+- Odbywa się w dni robocze po zajęciach w ustalanych na bieżąco godzinach.
+- Każdy członek zespołu przedstawia:
   1. Co zrobiłem/am od ostatniego Daily?
   2. Co planuję zrobić dzisiaj?
   3. Czy mam jakiekolwiek blokery lub potrzebuję pomocy?
 
 ## 4. Rotacja Facylitatora (Scrum Mastera)
-- Rola facylitatora sprintu rotuje co sprint pomiędzy członkami zespołu deweloperskiego (Jakub -> Samuel -> Piotr -> Lucjan), aby każdy zdobył doświadczenie w prowadzeniu ceremonii.
+- Rola facylitatora sprintu rotuje co sprint pomiędzy członkami zespołu deweloperskiego (Jakub -> Samuel -> Piotr -> Lucjan), aby każdy zdobył doświadczenie w prowadzeniu projektu.
 
 ## 5. Przepływ pracy i zasady Code Review
 - Prace realizujemy na dedykowanych gałęziach funkcjonalnych (`feature/nazwa-zadania`).
