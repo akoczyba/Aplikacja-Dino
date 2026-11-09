@@ -49,18 +49,18 @@ W ramach produktu zdefiniowano 6 Epików, do których przypisano szczegółowe U
 
 ## 3. Kalendarz Sprintów (Harmonogram semestralny - Zima 2026/2027)
 
-- **Sprint 0 (Zakończenie do 15.11):** Koncepcja produktu, Backlog, architektura, rejestr ryzyk, DoR/DoD.
-- **Sprint 1 (16.11 – 29.11):** 
+- **Sprint 0 (Zakończenie: 09.11.2026):** Koncepcja produktu, Backlog, architektura, rejestr ryzyk, DoR/DoD.
+- **Sprint 1 (10.11.2026 – 23.11.2026):** 
   - Cel: Baza danych, szkielet aplikacji, autentykacja (EPIC-01) oraz wirtualna DinoKarta (EPIC-02).
   - Zadania: US-01, US-02, US-03, US-04.
-- **Sprint 2 (30.11 – 13.12):**
+- **Sprint 2 (24.11.2026 – 07.12.2026):**
   - Cel: Moduł gazetki cyfrowej (EPIC-03) oraz katalog promocji (EPIC-04) zasilany danymi JSON.
   - Zadania: US-05, US-06.
-- **Sprint 3 (14.12 – 10.01) *[Uwzględnia przerwę świąteczną]*:**
+- **Sprint 3 (08.12.2026 – 04.01.2027):**
   - Cel: Interaktywna lista zakupów (EPIC-05) z integracją z katalogiem oraz lista sklepów (EPIC-06).
   - Zadania: US-07, US-08, US-09, US-10.
-- **Sprint 4 / Faza Stabilizacji (11.01 – 24.01):**
-  - Cel: Testy akceptacyjne UAT, usunięcie błędów regresyjnych, przygotowanie końcowej prezentacji Demo.
+- **Sprint 4 / Faza Stabilizacji (05.01.2027 – 18.01.2027):**
+  - Cel: Testy akceptacyjne UAT, usunięcie błędów regresyjnych, przygotowanie końcowej prezentacji Demo na drugą połowę stycznia.
 
 ---
 
