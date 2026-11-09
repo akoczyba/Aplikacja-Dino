@@ -19,10 +19,10 @@
   3. Czy mam jakiekolwiek blokery lub potrzebuję pomocy?
 
 ## 4. Rotacja Facylitatora (Scrum Mastera)
-- Rola facylitatora sprintu rotuje co sprint pomiędzy członkami zespołu deweloperskiego (Jakub -> Samuel -> Piotr -> Lucjan), aby każdy zdobył doświadczenie w prowadzeniu projektu.
+- Rola facylitatora sprintu rotuje co sprint pomiędzy członkami zespołu deweloperskiego (Jakub -> Samuel -> Piotr -> Lucjan)
 
 ## 5. Przepływ pracy i zasady Code Review
 - Prace realizujemy na dedykowanych gałęziach funkcjonalnych (`feature/nazwa-zadania`).
 - Po ukończeniu zadania deweloper otwiera Pull Request (PR) i przenosi kartę do kolumny `In Review`.
 - Do połączenia (merge) z gałęzią główną wymagany jest co najmniej jeden zatwierdzający review od innego członka zespołu deweloperskiego.
-- Po scaleniu kodu karta trafia do kolumny `Testing`, gdzie Tester weryfikuje kryteria akceptacji (UAT).
+- Po scaleniu kodu karta trafia do kolumny `Testing`, gdzie Tester weryfikuje kryteria akceptacji.
