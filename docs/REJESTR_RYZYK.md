@@ -1,4 +1,4 @@
-﻿# Rejestr Ryzyk Projektu (Dino App)
+﻿# Rejestr Ryzyk Projektu
 Opiekun rejestru: Adam Koczyba (Product Owner / Project Manager)
 Ostatnia aktualizacja: Sprint 0
 
