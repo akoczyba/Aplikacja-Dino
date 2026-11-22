@@ -7,6 +7,7 @@ const nextConfig: NextConfig = {
   },
   cacheComponents: true,
   partialPrefetching: true,
+  serverExternalPackages: ["msw"],
   turbopack: {
     rules: {
       "*.css": {
@@ -14,6 +15,18 @@ const nextConfig: NextConfig = {
         as: "*.css",
       },
     },
+    resolveAlias: {
+      "msw/browser": "./mocks/empty-browser.ts",
+    },
+  },
+  webpack(config, { isServer }) {
+    if (isServer) {
+      config.resolve.alias = {
+        ...config.resolve.alias,
+        "msw/browser": false,
+      };
+    }
+    return config;
   },
 };
 

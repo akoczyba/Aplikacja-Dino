@@ -1,55 +1,33 @@
 "use client";
+import { useEffect } from "react";
 
-import { useEffect, useState } from "react";
-
-let workerStartPromise: Promise<unknown> | null = null;
-let isWorkerStarted = false;
-
-async function startMockWorkerOnce() {
-  if (isWorkerStarted) return;
-  if (workerStartPromise) {
-    await workerStartPromise;
-    return;
-  }
-
-  workerStartPromise = (async () => {
-    const { worker } = await import("../../mocks/browser");
-    await worker.start({
-      onUnhandledRequest: "bypass",
-    } as Parameters<typeof worker.start>[0]);
-    isWorkerStarted = true;
-  })();
-
-  try {
-    await workerStartPromise;
-  } finally {
-    workerStartPromise = null;
-  }
-}
+// Zmienna globalna chroniąca przed podwójnym wywołaniem w React StrictMode
+let isMockingStarted = false;
 
 export function MSWProvider({ children }: { children: React.ReactNode }) {
-  const [ready, setReady] = useState(process.env.NODE_ENV !== "development");
-
   useEffect(() => {
-    if (process.env.NODE_ENV !== "development") return;
-    if (typeof window === "undefined") return;
+    if (typeof window !== "undefined" && process.env.NODE_ENV === "development") {
+      if (!isMockingStarted) {
+        isMockingStarted = true;
 
-    let active = true;
-
-    startMockWorkerOnce()
-      .catch((err) => {
-        console.error("MSW start error:", err);
-      })
-      .finally(() => {
-        if (active) setReady(true);
-      });
-
-    return () => {
-      active = false;
-    };
+        import("@/mocks/browser").then(({ worker }) => {
+          worker.start({
+            // Zamiast prostego "bypass", używamy funkcji filtrującej
+            onUnhandledRequest(request, print) {
+              // Całkowicie ignorujemy wewnętrzny ruch Next.js (w tym WebSocket _next/hmr)
+              if (request.url.includes("_next")) {
+                return;
+              }
+              // Dla reszty zapytań zostawiamy standardowe zachowanie (ostrzeżenie)
+              print.warning();
+            },
+          }).catch(() => {
+            // Ciche zignorowanie błędu, jeśli worker mimo wszystko spróbuje wstać ponownie
+          });
+        });
+      }
+    }
   }, []);
 
-  // Nie blokuj drzewa przez zwracanie `null` — zachowuje hydratację i nawigację segmentów
-  void ready;
   return <>{children}</>;
 }
