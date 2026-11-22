@@ -32,8 +32,8 @@ const sanitizeUser = ({ password: _, ...user }: MockUser) => user;
 let mockUsers: MockUser[] = [
   {
     id: "11111111-1111-4111-8111-111111111111",
-    email: "test@dino.pl",
-    password: "Password123!",
+    email: "test@email.pl",
+    password: "Password1",
     first_name: "Jan",
     phone_number: "+48500600700",
     created_at: new Date().toISOString(),
