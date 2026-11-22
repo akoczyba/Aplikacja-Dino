@@ -1,0 +1,51 @@
+services:
+  # 1. Baza danych PostgreSQL
+  db:
+    image: postgres:16-alpine
+    container_name: dino_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-dino_user}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-dino_secret_pass}
+      POSTGRES_DB: ${POSTGRES_DB:-dino_db}
+    ports:
+      # Wystawione na localhost do podglądu np. w DBeaver/pgAdmin (w produkcji można usunąć)
+      - "127.0.0.1:5432:5432"
+    volumes:
+      # Trwały wolumen na dane bazy (nie znikną po restarcie kontenera)
+      - dino_pgdata:/var/lib/postgresql/data
+      # Automatyczne wykonanie skryptu tworzącego tabele przy pierwszym starcie bazy
+      - ./sql/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-dino_user} -d ${POSTGRES_DB:-dino_db}" ]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - dino_network
+
+  # 2. Backend FastAPI
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: dino_api
+    restart: unless-stopped
+    ports:
+      - "${API_PORT:-8000}:8000"
+    environment:
+      DATABASE_URL: postgresql://${POSTGRES_USER:-dino_user}:${POSTGRES_PASSWORD:-dino_secret_pass}@db:5432/${POSTGRES_DB:-dino_db}
+      JWT_SECRET_KEY: ${JWT_SECRET_KEY:?Wymagane ustawienie JWT_SECRET_KEY w pliku .env}
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - dino_network
+
+volumes:
+  dino_pgdata:
+    driver: local
+
+networks:
+  dino_network:
+    driver: bridge
