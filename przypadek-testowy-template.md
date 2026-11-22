@@ -1,5 +1,5 @@
 ---
-ID: TC-[US-XX]-[NUMER] *(np. TC-US03-001)*
+ID: TC-[US-XX]-[NUMER] (np. TC-US03-001)
 Tytuł: [Krótki i konkretny opis weryfikowanego zachowania]
 Epik / User Story: [np. EPIC-02 / US-03: Wyświetlenie kodu karty]
 Priorytet MoSCoW: [MUST HAVE / SHOULD HAVE][cite: 9]
