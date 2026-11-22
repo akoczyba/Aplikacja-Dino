@@ -1,0 +1,31 @@
+md_content = """# Definition of Ready (DoR) i Definition of Done (DoD) v1
+
+**Projekt:** Aplikacja mobilna sieci sklepów Dino  
+**Zespół:** Adam Koczyba (PO/PM), Jakub Góra (UX/Frontend), Lucjan Klarecki (QA/Tester), Piotr Panasiński (DevOps/Platforma), Samuel Noszczyk (Backend/Architektura)
+
+---
+
+## 1. Definition of Ready (DoR)
+
+Warunki, które musi spełnić zadanie (*User Story*), zanim zespół pobierze je do realizacji w Sprincie:
+
+* **Kontekst i priorytet (PO):** Zadanie jest przypisane do konkretnego Epika (`EPIC-01` – `EPIC-06`), posiada priorytet MoSCoW (`MUST HAVE` / `SHOULD HAVE`) oraz mieści się w zakresie MVP (nie obejmuje elementów wyłączonych z zakresu, takich jak płatności online, zamówienia z dostawą, integracja z fizycznymi kasami POS czy weryfikacja SMS).
+* **Kryteria akceptacji (PO + QA):** Zdefiniowano jasne, mierzalne i testowalne kryteria akceptacji (najlepiej w formacie *Given-When-Then*), uwzględniające potrzeby głównych grup odbiorców (m.in. osób oszczędzających i planujących zakupy oraz osób mniej przekonanych do współczesnej technologii).
+* **Kontrakt API (Backend + Frontend):** Ustalono strukturę żądań i odpowiedzi JSON (endpointy, modele danych, kody statusu), aby ograniczyć ryzyko opóźnień integracji frontend–backend.
+* **Dane testowe (PO):** Jeśli zadanie wymaga treści (np. gazetki, promocji, listy sklepów), przygotowano spójny plik *seed data* w formacie JSON.
+* **Makiety i przepływ UI (UX/Frontend):** Dostępny jest projekt ekranu (wraz ze stanami błędów i pustymi stanami), zapewniający czytelność i prostotę obsługi.
+* **Wycena:** Zadanie zostało omówione przez zespół i posiada nadaną estymację (*Story Points*).
+
+---
+
+## 2. Definition of Done (DoD) v1
+
+Warunki, które muszą zostać spełnione, aby uznać zadanie za ukończone i przenieść kartę z kolumny `Testing` do `Done` na tablicy GitHub Projects:
+
+* **Gałąź i czystość kodu (Dev):** Kod został przygotowany na dedykowanej gałęzi funkcjonalnej (`feature/nazwa-zadania`) zgodnie ze standardami zespołu oraz bez tymczasowych obejść.
+* **Automatyczna bramka jakości CI (DevOps + QA):** *Pull Request* (PR) przeszedł na zielono przez pipeline CI (linting, testy jednostkowe z pokryciem co najmniej **70%** oraz testy dymne API).
+* **Code Review (Zespół Dev):** PR uzyskał co najmniej **1 zatwierdzający review** od innego członka zespołu deweloperskiego przed scaleniem do gałęzi głównej (`In Review` -> `Testing`).
+* **Weryfikacja QA (Tester):** Wszystkie kryteria akceptacji zostały sprawdzone i zaliczone na środowisku testowym (np. emulator, podgląd webowy lub urządzenie) po scaleniu zmian.
+* **Brak krytycznych defektów (QA + PO):** Brak otwartych zgłoszeń błędów (*GitHub Issues* z etykietą `bug`) o priorytecie **Blocker** lub **Critical** powiązanych z zadaniem (ewentualne błędy niższej wagi są opisane i zaakceptowane przez Product Ownera).
+* **Aktualna dokumentacja:** Zaktualizowano opis kontraktów API lub instrukcję uruchomienia środowiska, jeśli zadanie wprowadziło nowe endpointy lub zależności.
+"""
