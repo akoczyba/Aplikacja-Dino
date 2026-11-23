@@ -19,9 +19,9 @@ Poziomy testów:
 Narzędzia:
 
 - Zarządzanie zadaniami, błędami, procesem: GitHub
-- 
+
 - Testy API: Pytest (automatyczne testy), Bruno lub Postman (ręczne testy)
-- 
+
 - Testy E2E mobilne: Maestro
 
 Kryteria zakończenia testów:
